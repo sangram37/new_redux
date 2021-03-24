@@ -9,6 +9,9 @@ import foodfrom from '../src/foodfrom';
 import foodlist from '../src/foodlist';
 import Home from '../src/Screen/Home';
 import Dashboard from '../src/Screen/Dashboard';
+import Splash from './Screen/Splash';
+import Intro from './Screen/Intro';
+import Login from './Screen/Login/Login';
 // const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -21,11 +24,14 @@ class Router extends React.Component {
     return (
 
       <NavigationContainer>
-        <Stack.Navigator headerMode={'none'} initialRouteName={'Home'}>
+        <Stack.Navigator headerMode={'none'} initialRouteName={'Splash'}>
           <Stack.Screen name="foodfrom" component={foodfrom} />
           <Stack.Screen name="foodlist" component={foodlist} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Splash" component={Splash} />
+          <Stack.Screen name="Intro" component={Intro} />
+          <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
 
