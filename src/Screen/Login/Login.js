@@ -19,7 +19,12 @@ import ButtonComponent from "../../component/buttomcomponent/ButtonComponent";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
+import Popup_Screen from "../../component/Popup/Popup_Screen";
 
+
+const days = [];
+// Same for times
+const times = ['9:00 AM', '11:10 AM', '12:00 PM', '1:50 PM', '4:30 PM', '6:00 PM', '7:10 PM', '9:45 PM'];
 
 
 const { height } = Dimensions.get('window')
@@ -40,6 +45,139 @@ class Login extends React.Component {
             S_email: '',
             S_password: '',
             S_cnf_pass: '',
+            popupIsOpen: false,
+            // Day chosen by user
+            chosenDay: 0,       // choose first day by default
+            // Time chosen by user
+            chosenTime: null,
+            movies: [
+                {
+                    title: 'La La Land',
+                    poster: 'https://i.imgur.com/po7UezG.jpg',
+                    genre: 'Drama/Romance',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Paterson',
+                    poster: 'https://i.imgur.com/pE0C9E0.jpg',
+                    genre: 'Drama/Comedy',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Jackie',
+                    poster: 'https://i.imgur.com/VqUi1sw.jpg',
+                    genre: 'Drama/Biography',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Lo and Behold Reveries of the Connected World',
+                    poster: 'https://i.imgur.com/s106X7S.jpg',
+                    genre: 'Documentary',
+                    days,
+                    times,
+                },
+                {
+                    title: '10 Cloverfield Lane',
+                    poster: 'https://i.imgur.com/kV2BVdH.jpg',
+                    genre: 'Drama',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Birth of a Nation',
+                    poster: 'https://i.imgur.com/a6HJj8S.jpg',
+                    genre: 'Fantasy/Myster',
+                    days,
+                    times,
+                },
+                {
+                    title: 'De Palma',
+                    poster: 'https://i.imgur.com/oOIa73M.jpg',
+                    genre: 'Documentary',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Doctor Strange',
+                    poster: 'https://i.imgur.com/kyHDVOk.jpg',
+                    genre: 'Fantasy/Science Fiction',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Eddie the Eagle',
+                    poster: 'https://i.imgur.com/GNrdAuF.jpg',
+                    genre: 'Drama/Sport',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Pride and prejudice and zombies',
+                    poster: 'https://i.imgur.com/KhbG0Lw.jpg',
+                    genre: 'Thriller/Action',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Finding Dory',
+                    poster: 'https://i.imgur.com/BTexHYJ.jpg',
+                    genre: 'Comedy/Adventure',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Green Room',
+                    poster: 'https://i.imgur.com/Q0Ysh7L.jpg',
+                    genre: 'Crime/Thriller',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Kubo and the Two Strings',
+                    poster: 'https://i.imgur.com/uTFCKZc.jpg',
+                    genre: 'Fantasy/Adventure',
+                    days,
+                    times,
+                },
+                {
+                    title: 'In a Valley of Violence',
+                    poster: 'https://i.imgur.com/DTtJ62G.jpg',
+                    genre: 'Drama/Western',
+                    days,
+                    times,
+                },
+                {
+                    title: 'O.J.: Made in America',
+                    poster: 'https://i.imgur.com/T8uc6x8.jpg',
+                    genre: 'Documentary',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Rogue One: A Star Wars Story',
+                    poster: 'https://i.imgur.com/zOF2iYc.jpg',
+                    genre: 'Science Fiction/Action',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Sing Street',
+                    poster: 'https://i.imgur.com/C3ExEb6.jpg',
+                    genre: 'Drama/Romance',
+                    days,
+                    times,
+                },
+                {
+                    title: 'Zoolander 2',
+                    poster: 'https://i.imgur.com/ejlIijD.jpg',
+                    genre: 'Comedy',
+                    days,
+                    times,
+                },
+            ]
         };
     }
     onlogin = () => {
@@ -47,7 +185,7 @@ class Login extends React.Component {
         form.append('username', this.state.l_username);
         form.append('password', this.state.l_password);
         console.log('login form', form)
-        this.props.navigation.replace('DrawerMenu')
+        this.props.navigation.replace('Home')
     }
     onsignup = () => {
         let form = new FormData();
@@ -56,7 +194,7 @@ class Login extends React.Component {
         form.append('password', this.state.S_password);
         form.append('confirm_password', this.state.S_cnf_pass);
         console.log('signup form', form)
-        this.props.navigation.replace('DrawerMenu')
+        this.props.navigation.replace('Home')
     }
     Animation = () => {
 
@@ -105,6 +243,32 @@ class Login extends React.Component {
         this.Animation()
 
     }
+    openMovie = () => {
+        this.setState({
+            popupIsOpen: true,
+
+        });
+    }
+
+    closeMovie = () => {
+        this.setState({
+            popupIsOpen: false,
+            // Reset values to default ones
+            chosenDay: 0,
+            chosenTime: null,
+        });
+    }
+    // chooseDay = (day) => {
+    //     this.setState({
+    //         chosenDay: day,
+    //     });
+    // }
+
+    // chooseTime = (time) => {
+    //     this.setState({
+    //         chosenTime: time,
+    //     });
+    // }
     render() {
         const { coverHeight, formOpacity, loader, topHeight, type, l_password, l_username,
             S_cnf_pass, S_email, S_password, S_username } = this.state;
@@ -285,6 +449,24 @@ class Login extends React.Component {
                                 btnBorderRadius={15}
                             />
                         </Animated.View>
+                        <Animated.View style={{ width: '85%', alignSelf: 'center', marginTop: 25 }}>
+                            <ButtonComponent
+                                btnText={type === 'Login' ? ('Pop UP') : ('Pop UP')}
+                                txtFontWeight={'bold'}
+                                btnAction={type === 'Login' ? (() => this.openMovie()) : (() => this.openMovie())}
+                                btnLoader={loader}
+                                btnBorderRadius={15}
+                            />
+                        </Animated.View>
+                        <Popup_Screen
+                            movie={this.state.movies}
+                            isOpen={this.state.popupIsOpen}
+                            onClose={this.closeMovie}
+                        // chosenDay={this.state.chosenDay}
+                        // chosenTime={this.state.chosenTime}
+                        // onChooseDay={this.chooseDay}
+                        // onChooseTime={this.chooseTime}
+                        />
 
                     </ScrollView>
                 </ImageBackground>
