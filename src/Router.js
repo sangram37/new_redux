@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'react-native';
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // import component
+import HomeScreen from '../src/Screen/HomeScreen';
 import foodfrom from '../src/foodfrom';
 import foodlist from '../src/foodlist';
 import Home from '../src/Screen/Home';
@@ -12,6 +13,10 @@ import Dashboard from '../src/Screen/Dashboard';
 import Splash from './Screen/Splash';
 import Intro from './Screen/Intro';
 import Login from './Screen/Login/Login';
+import flatListAnimation1 from './Screen/flatListAnimation1';
+import flatListAnimation2 from './Screen/flatListAnimation2';
+import Popup_Screen from './component/Popup/Popup_Screen';
+
 // const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -24,10 +29,14 @@ class Router extends React.Component {
     return (
 
       <NavigationContainer>
-        <Stack.Navigator headerMode={'none'} initialRouteName={'Splash'}>
+        <Stack.Navigator headerMode={'none'} initialRouteName={'HomeScreen'}>
           <Stack.Screen name="foodfrom" component={foodfrom} />
           <Stack.Screen name="foodlist" component={foodlist} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="flatListAnimation1" component={flatListAnimation1} />
+          <Stack.Screen name="flatListAnimation2" component={flatListAnimation2} />
+          <Stack.Screen name="Popup_Screen" component={Popup_Screen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Intro" component={Intro} />
