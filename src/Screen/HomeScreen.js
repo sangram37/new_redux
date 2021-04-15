@@ -36,6 +36,12 @@ class HomeScreen extends React.Component {
                     <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('flatListAnimation2')}>
                         <Text style={styles.title}>flatList Animation 2</Text>
                     </TouchableOpacity>
+                      <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('Skeleton_loader')}>
+                        <Text style={styles.title}>Skeleton loader</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('Skeleton_loader1')}>
+                        <Text style={styles.title}>Skeleton loader 1</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('Tinder')}>
                         <Text style={styles.title}>Tinder</Text>
                     </TouchableOpacity>
