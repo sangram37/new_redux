@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, FlatList, Alert, ScrollView } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, FlatList, Alert, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Delete } from '../actions/HomeAction'
 class HomeScreen extends React.Component {
@@ -13,24 +13,28 @@ class HomeScreen extends React.Component {
         return (
             <SafeAreaView style={{ flex: 1, paddingHorizontal: 10, paddingTop: 10 }}>
                 <ScrollView>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Intro')}>
-                        <Text>Splash</Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Intro')}
+                        style={styles.card}>
+                        <Text style={styles.title}>Splash</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Login', {
+                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('Login', {
                         type: 'Login'
                     })}>
-                        <Text>Login</Text>
+                        <Text style={styles.title}>Login</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Login', {
+                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('Login', {
                         type: 'Signup'
                     })}>
-                        <Text>Signup</Text>
+                        <Text style={styles.title}>Signup</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('flatListAnimation1')}>
-                        <Text>flatList Animation 1</Text>
+                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('flatListAnimation1')}>
+                        <Text style={styles.title}>flatList Animation 1</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('flatListAnimation2')}>
-                        <Text>flatList Animation 2</Text>
+                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('flatListAnimation2')}>
+                        <Text style={styles.title}>flatList Animation 2</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('Tinder')}>
+                        <Text style={styles.title}>Tinder</Text>
                     </TouchableOpacity>
                 </ScrollView>
 
@@ -41,3 +45,34 @@ class HomeScreen extends React.Component {
 }
 
 export default HomeScreen
+const styles = StyleSheet.create({
+    card: {
+        width: '90%',
+        // height: 100,
+        marginTop: 10,
+        paddingVertical: '5%',
+        alignSelf: 'center',
+        // alignContent: 'center',
+        backgroundColor: '#fff',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        paddingHorizontal: 15,
+        // paddingBottom: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
+
+        elevation: 6,
+    },
+    title: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+
+    },
+
+});

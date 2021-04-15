@@ -16,6 +16,7 @@ import Login from './Screen/Login/Login';
 import flatListAnimation1 from './Screen/flatListAnimation1';
 import flatListAnimation2 from './Screen/flatListAnimation2';
 import Popup_Screen from './component/Popup/Popup_Screen';
+import Tinder from './Screen/Tinder/Tinder';
 
 // const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -41,6 +42,7 @@ class Router extends React.Component {
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Intro" component={Intro} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Tinder" component={Tinder} />
         </Stack.Navigator>
       </NavigationContainer>
 
