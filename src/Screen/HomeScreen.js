@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, FlatList, Alert, ScrollView, StyleSheet } from 'react-native';
+import {
+    View, Text, SafeAreaView, TouchableOpacity,
+    FlatList, Alert, ScrollView, StyleSheet
+} from 'react-native';
 import { connect } from 'react-redux';
 import { Delete } from '../actions/HomeAction'
 class HomeScreen extends React.Component {
