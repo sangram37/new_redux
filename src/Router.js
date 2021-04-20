@@ -15,6 +15,7 @@ import Intro from './Screen/Intro';
 import Login from './Screen/Login/Login';
 import flatListAnimation1 from './Screen/flatListAnimation1';
 import flatListAnimation2 from './Screen/flatListAnimation2';
+import flatListAnimation3 from './Screen/flatListAnimation3';
 import Popup_Screen from './component/Popup/Popup_Screen';
 import Tinder from './Screen/Tinder/Tinder';
 
@@ -39,6 +40,7 @@ class Router extends React.Component {
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="flatListAnimation1" component={flatListAnimation1} />
           <Stack.Screen name="flatListAnimation2" component={flatListAnimation2} />
+          <Stack.Screen name="flatListAnimation3" component={flatListAnimation3} />
           <Stack.Screen name="Popup_Screen" component={Popup_Screen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Splash" component={Splash} />
