@@ -39,6 +39,9 @@ class HomeScreen extends React.Component {
                     <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('flatListAnimation3')}>
                         <Text style={styles.title}>flatList Animation 3</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('CarouselAnimation3d')}>
+                        <Text style={styles.title}>3D CarouselAnimation</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('Skeleton_loader')}>
                         <Text style={styles.title}>Skeleton loader</Text>
                     </TouchableOpacity>
@@ -49,8 +52,6 @@ class HomeScreen extends React.Component {
                         <Text style={styles.title}>Tinder</Text>
                     </TouchableOpacity>
                 </ScrollView>
-
-
             </SafeAreaView>
         )
     }
